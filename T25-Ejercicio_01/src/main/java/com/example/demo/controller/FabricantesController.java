@@ -24,8 +24,19 @@ public class FabricantesController {
 		return fabricanteServiceImpl.guardarFabricante(fabricante);
 	}
 	
+	@GetMapping("/fabricantes/{id}")
+	public Fabricante listarXId(@PathVariable(name="id") Long id) {
+		Fabricante fabricante_xid = new Fabricante();
+		
+		fabricante_xid = fabricanteServiceImpl.listarXId(id);
+		
+		System.out.println("Fabricante XID: " + fabricante_xid);
+		
+		return fabricante_xid;
+	}
+	
 	@PutMapping("/fabricantes/{id}")
-	public Fabricante actualizarFabricante(@PathVariable(name="id")Long id,@RequestBody Fabricante fabricante) {
+	public Fabricante actualizarFabricante(@PathVariable(name="id")Long id, @RequestBody Fabricante fabricante) {
 		
 		Fabricante fabricante_seleccionado = new Fabricante();
 		Fabricante fabricante_actualizado = new Fabricante();

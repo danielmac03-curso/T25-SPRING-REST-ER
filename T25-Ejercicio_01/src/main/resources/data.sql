@@ -1,14 +1,17 @@
+DROP TABLE IF EXISTS articulos;
+DROP TABLE IF EXISTS fabricantes;
+
 CREATE TABLE fabricantes(
-    id bigint PRIMARY KEY,
+    id bigint AUTO_INCREMENT PRIMARY KEY,
     nombre nvarchar(100) not null
 );
 
 CREATE TABLE articulos(
-    id bigint PRIMARY KEY,
+    id bigint AUTO_INCREMENT PRIMARY KEY,
     nombre nvarchar(100) not null,
     precio int not null,
     fabricante int not null,
-    FOREIGN KEY fabricante REFERENCES fabricantes(id)
+    FOREIGN KEY (fabricante) REFERENCES fabricantes(id)
 );
 
 INSERT INTO fabricantes (nombre) VALUES

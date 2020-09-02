@@ -4,7 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.dto.Articulo;
+import com.example.demo.dto.Articulos;
+import com.example.demo.dto.Fabricante;
 import com.example.demo.service.ArticuloServiceImpl;
 
 @RestController
@@ -15,20 +16,31 @@ public class ArticulosController {
 	ArticuloServiceImpl articuloServiceImpl;
 	
 	@GetMapping("/articulos")
-	public List<Articulo> listarArticulos(){
+	public List<Articulos> listarArticulos(){
 		return articuloServiceImpl.listarArticulo();
 	}
 	
 	@PostMapping("/articulos")
-	public Articulo salvarArticulos(Articulo articulo) {
+	public Articulos salvarArticulos(Articulos articulo) {
 		return articuloServiceImpl.guardarArticulo(articulo);
 	}
 	
-	@PutMapping("/articulos/{id}")
-	public Articulo actualizarArticulos(@PathVariable(name="id")Long id,@RequestBody Articulo articulo) {
+	@GetMapping("/articulos/{id}")
+	public Articulos listarXId(@PathVariable(name="id") Long id) {
+		Articulos listarXID = new Articulos();
 		
-		Articulo articulo_seleccionado = new Articulo();
-		Articulo articulo_actualizado = new Articulo();
+		listarXID = articuloServiceImpl.listarXId(id);
+		
+		System.out.println("Fabricante XID: " + listarXID);
+		
+		return listarXID;
+	}
+	
+	@PutMapping("/articulos/{id}")
+	public Articulos actualizarArticulos(@PathVariable(name="id")Long id,@RequestBody Articulos articulo) {
+		
+		Articulos articulo_seleccionado = new Articulos();
+		Articulos articulo_actualizado = new Articulos();
 		
 		articulo_seleccionado= articuloServiceImpl.listarXId(id);
 		

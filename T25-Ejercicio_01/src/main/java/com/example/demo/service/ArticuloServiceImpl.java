@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.IArticulosDAO;
-import com.example.demo.dto.Articulo;
+import com.example.demo.dto.Articulos;
 
 @Service
 public class ArticuloServiceImpl implements IArticuloService {
@@ -14,25 +14,25 @@ public class ArticuloServiceImpl implements IArticuloService {
 	IArticulosDAO iArticulosDAO;
 
 	@Override
-	public List<Articulo> listarArticulo() {
+	public List<Articulos> listarArticulo() {
 		// TODO Auto-generated method stub
 		return iArticulosDAO.findAll();
 	}
 
 	@Override
-	public Articulo guardarArticulo(Articulo articulo) {
+	public Articulos guardarArticulo(Articulos articulo) {
 		// TODO Auto-generated method stub
 		return iArticulosDAO.save(articulo);
 	}
 
 	@Override
-	public Articulo listarXId(Long id) {
+	public Articulos listarXId(Long id) {
 		// TODO Auto-generated method stub
 		return iArticulosDAO.findById(id).get();
 	}
 
 	@Override
-	public Articulo actualizarArticulo(Articulo articulo) {
+	public Articulos actualizarArticulo(Articulos articulo) {
 		// TODO Auto-generated method stub
 		return iArticulosDAO.save(articulo);
 	}

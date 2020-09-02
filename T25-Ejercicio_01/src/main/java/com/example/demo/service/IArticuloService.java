@@ -1,17 +1,17 @@
 package com.example.demo.service;
 
 import java.util.List;
-import com.example.demo.dto.Articulo;
+import com.example.demo.dto.Articulos;
 
 public interface IArticuloService {
 	
-	public List<Articulo> listarArticulo();
+	public List<Articulos> listarArticulo();
 	
-	public Articulo guardarArticulo(Articulo articulo);
+	public Articulos guardarArticulo(Articulos articulo);
 	
-	public Articulo listarXId(Long id);
+	public Articulos listarXId(Long id);
 	
-	public Articulo actualizarArticulo(Articulo articulo);
+	public Articulos actualizarArticulo(Articulos articulo);
 	
 	public void eliminarArticulo(Long id);
 	

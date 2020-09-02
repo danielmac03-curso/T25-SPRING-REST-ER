@@ -17,7 +17,7 @@ public class Fabricante {
 	
 	@OneToMany
 	@JoinColumn(name="id")
-	private List<Articulo> articulos;
+	private List<Articulos> articulos;
 
 	public Fabricante() {}
 	
@@ -44,11 +44,11 @@ public class Fabricante {
 
 	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Articulos")
-	public List<Articulo> getArticulos() {
+	public List<Articulos> getArticulos() {
 		return articulos;
 	}
 
-	public void setArticulos(List<Articulo> articulos) {
+	public void setArticulos(List<Articulos> articulos) {
 		this.articulos = articulos;
 	}
 
